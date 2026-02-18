@@ -1,10 +1,9 @@
-
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { GoogleGenAI, Modality, LiveServerMessage } from "@google/genai";
-import { ScriptFormat, ScriptLine, ProcessingState, AppTab } from './types';
-import VideoUploader from './components/VideoUploader';
-import ScriptViewer from './components/ScriptViewer';
-import ProcessingIndicator from './components/ProcessingIndicator';
+import { ScriptFormat, ScriptLine, ProcessingState, AppTab } from './types.ts';
+import VideoUploader from './components/VideoUploader.tsx';
+import ScriptViewer from './components/ScriptViewer.tsx';
+import ProcessingIndicator from './components/ProcessingIndicator.tsx';
 
 const VEO_LOADING_MESSAGES = [
   "Initializing Veo Cinema Engine...",
