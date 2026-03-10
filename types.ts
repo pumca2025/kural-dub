@@ -25,4 +25,39 @@ export interface ProcessingState {
   message: string;
 }
 
-export type AppTab = 'script' | 'visuals' | 'analysis' | 'audio';
+export type AppTab = 'script' | 'visuals' | 'analysis' | 'audio' | 'history';
+
+// ─── Auth Types ──────────────────────────────────────────────────────────────
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: 'user' | 'admin';
+  scriptsGenerated: number;
+  lastLogin?: string;
+  createdAt: string;
+}
+
+export interface AuthState {
+  user: User | null;
+  token: string | null;
+  isAuthenticated: boolean;
+}
+
+// ─── History Types ───────────────────────────────────────────────────────────
+
+export interface HistoryRecord {
+  _id: string;
+  videoName: string;
+  videoSize: number;
+  videoType: string;
+  format: ScriptFormat;
+  script?: ScriptLine[];
+  totalLines: number;
+  duration?: string;
+  status: 'completed' | 'failed' | 'processing';
+  exportedAt?: string;
+  createdAt: string;
+  user?: { name: string; email: string };
+}
